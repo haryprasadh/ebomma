@@ -40,7 +40,7 @@ async function main() {
 
       const img = document.createElement("img");
       img.src = movieData.Poster;
-      img.setAttribute("style", "width:10vw");
+      img.setAttribute("style", "width:10vw;border-radius:3%");
 
       const p = document.createElement("p");
       p.textContent = `PLOT: ${movieData.Plot}`;

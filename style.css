@@ -11,6 +11,7 @@ body{
 button{
     border-radius: 3px;
     background-color: rgb(105, 144, 167);
+    border:1px solid black;
 }
 span{
     display: flex;
