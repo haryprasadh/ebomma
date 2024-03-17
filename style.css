@@ -1,0 +1,22 @@
+#mainDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+body{
+    background-color:rgb(120, 160, 131);
+}
+
+button{
+    border-radius: 3px;
+    background-color: rgb(105, 144, 167);
+}
+span{
+    display: flex;
+    justify-content: space-around;
+}
+
+h4,p{
+    color:rgb(53, 55, 75);
+}
