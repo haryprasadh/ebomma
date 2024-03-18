@@ -10,11 +10,16 @@
 </head>
 
 <body>
-    <span>
-        <h3>This web app displays the current movies playing on <a
-                href="https://tube.ibomma.pw/telugu-movies/">IBOMMA</a> with IMDB ratings of 8 or higher <button
-                onclick="main()">click here</button></h3>
-    </span>
+    <div id="container">
+        <div>
+            <h3>Choose minimum rating <input type="range" min="0" max="10" value="7.5" step="0.5" id="minRating"></h3>
+            <h4 id="inline">
+                Get movies above <span id="minRatingDisplay">7.5</span> rating from <a
+                    href="https://tube.ibomma.pw/telugu-movies/">IBOMMA</a>
+            </h4>
+            <button onclick="main()">click me</button>
+        </div>
+    </div>
     <hr>
     <div id="mainDiv"></div>
     <script src="./index.js"></script>

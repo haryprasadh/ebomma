@@ -4,6 +4,14 @@ const OMDBapikey = "352838b6";
 const OMDBurl = `https://www.omdbapi.com/?apikey=${OMDBapikey}`;
 
 const mainDiv = document.getElementById("mainDiv");
+const minRatingDisplay = document.getElementById("minRatingDisplay");
+const minRating = document.getElementById("minRating");
+let presentMinRating = 7.5;
+
+minRating.addEventListener("input", function () {
+  minRatingDisplay.textContent = this.value;
+  presentMinRating = this.value;
+});
 
 async function main() {
   mainDiv.innerHTML = "";
@@ -30,7 +38,7 @@ async function main() {
 
       if (movieData.Response == "False") continue;
       let rating = movieData.imdbRating;
-      if (rating < 8 || rating === "N/A") continue;
+      if (rating < presentMinRating || rating === "N/A") continue;
 
       const div = document.createElement("div");
 
@@ -69,7 +77,7 @@ async function main() {
 
       div.append(h3, img, h41, h42, h44, h43, p, a);
       div.classList.add("small-div");
-      div.setAttribute("style", "background-color:rgb(76, 115, 87)");
+      div.setAttribute("style", "background-color:rgb(120, 160, 131)");
 
       mainDiv.append(div);
     }

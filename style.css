@@ -5,18 +5,15 @@
     gap:1rem;
 }
 
+
 body{
-    background-color:rgb(120, 160, 131);
+    background-color:rgb(76, 115, 87);
 }
 
 button{
     border-radius: 3px;
     background-color: rgb(105, 144, 167);
     border:1px solid black;
-}
-span{
-    display: flex;
-    justify-content: space-around;
 }
 
 h4,p{
@@ -26,6 +23,15 @@ h4,p{
 .small-div{
     padding: 1rem;
     border-radius: 3px;
+}
+
+#container{
+    display: flex;
+    justify-content: space-around;
+}
+
+#minRatingDisplay{
+    color:rgb(19, 6, 197);
 }
 
 @media(width <480px){
