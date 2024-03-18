@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap:1rem;
 }
 
 body{
@@ -21,3 +22,26 @@ span{
 h4,p{
     color:rgb(53, 55, 75);
 }
+
+.small-div{
+    padding: 1rem;
+    border-radius: 3px;
+}
+
+@media(width <480px){
+    .small-div{
+        width: 90%;
+    }
+}
+@media(480px<= width <=750px){
+    .small-div{
+        width: 40%;
+    }
+}
+@media(width >750px) {
+    .small-div {
+        width: 20%;
+    }
+}
+
+
