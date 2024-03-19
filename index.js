@@ -27,6 +27,7 @@ async function main() {
 
     const movies = doc.querySelectorAll(".entry-title");
     mainDiv.innerHTML = "";
+    let sortMovies = [];
     for (let movie of movies) {
       let name = movie.textContent.substring(0, movie.textContent.length - 4);
       let year = movie.textContent.substring(movie.textContent.length - 4);
@@ -38,19 +39,39 @@ async function main() {
 
       if (movieData.Response == "False") continue;
       let rating = movieData.imdbRating;
-      if (rating < presentMinRating || rating === "N/A") continue;
+      if (rating !== "N/A" && rating < presentMinRating) continue;
 
+      let oneMovie = [];
+      oneMovie.push(movieData.Title);
+      oneMovie.push(movieData.Poster);
+      oneMovie.push(movieData.Plot);
+      oneMovie.push(movieData.imdbRating);
+      oneMovie.push(movieData.Genre);
+      oneMovie.push(movieData.Runtime);
+      oneMovie.push(movieData.Type);
+      oneMovie.push(link);
+
+      sortMovies.push(oneMovie);
+    }
+
+    sortMovies.sort((a, b) => {
+      if (a[3] === "N/A") return 1;
+      if (b[3] === "N/A") return -1;
+      return b[3] - a[3];
+    });
+
+    for (let movie of sortMovies) {
       const div = document.createElement("div");
 
       const h3 = document.createElement("h3");
       const span1 = document.createElement("span");
-      span1.textContent = `${movieData.Title}`;
+      span1.textContent = `${movie[0]}`;
       span1.className = "highlight";
       h3.appendChild(span1);
       h3.setAttribute("style", "width:90%;");
 
       const img = document.createElement("img");
-      img.src = movieData.Poster;
+      img.src = movie[1];
       img.setAttribute("style", "width:50%;border-radius:3%");
 
       const h5 = document.createElement("h5");
@@ -58,7 +79,7 @@ async function main() {
       span2.textContent = "PLOT: ";
       span2.className = "highlight2";
       h5.appendChild(span2);
-      h5.appendChild(document.createTextNode(movieData.Plot));
+      h5.appendChild(document.createTextNode(movie[2]));
       h5.setAttribute("style", "width:90%");
 
       const h41 = document.createElement("h4");
@@ -66,7 +87,7 @@ async function main() {
       span3.textContent = "IMDB rating: ";
       span3.className = "highlight2";
       h41.appendChild(span3);
-      h41.appendChild(document.createTextNode(movieData.imdbRating));
+      h41.appendChild(document.createTextNode(movie[3]));
       h41.setAttribute("style", "width:90%");
 
       const h42 = document.createElement("h4");
@@ -74,7 +95,7 @@ async function main() {
       span4.textContent = "Genre: ";
       span4.className = "highlight2";
       h42.appendChild(span4);
-      h42.appendChild(document.createTextNode(movieData.Genre));
+      h42.appendChild(document.createTextNode(movie[4]));
       h42.setAttribute("style", "width:90%");
 
       const h43 = document.createElement("h4");
@@ -82,7 +103,7 @@ async function main() {
       span5.textContent = "Runtime: ";
       span5.className = "highlight2";
       h43.appendChild(span5);
-      h43.appendChild(document.createTextNode(movieData.Runtime));
+      h43.appendChild(document.createTextNode(movie[5]));
       h43.setAttribute("style", "width:90%");
 
       const h44 = document.createElement("h4");
@@ -90,12 +111,12 @@ async function main() {
       span6.textContent = "Type: ";
       span6.className = "highlight2";
       h44.appendChild(span6);
-      h44.appendChild(document.createTextNode(movieData.Type));
+      h44.appendChild(document.createTextNode(movie[6]));
       h44.setAttribute("style", "width:90%");
 
       const a = document.createElement("a");
-      a.textContent = `open ${movieData.Title}`;
-      a.href = link;
+      a.textContent = `open ${movie[0]}`;
+      a.href = movie[7];
       a.setAttribute("style", "width:90%");
 
       div.append(h3, img, h41, h42, h44, h43, h5, a);
