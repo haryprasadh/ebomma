@@ -20,7 +20,7 @@ async function main() {
   mainDiv.append(load);
 
   try {
-    const response = await fetch(proxyUrl + targetUrl);
+    const response = await fetch(targetUrl);
     const html = await response.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");

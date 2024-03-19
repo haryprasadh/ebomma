@@ -5,18 +5,27 @@
     gap:1rem;
 }
 
+#logo{
+    width:12%;
+}
+
+#nav{
+ display: flex;
+ justify-content: space-between;
+}
 
 body{
-    background-color:rgb(76, 115, 87);
+    background-color:rgb(57, 87, 65);
 }
 
-button{
+#mainRunner{
     border-radius: 3px;
-    background-color: rgb(105, 144, 167);
+    background-color: black;
     border:1px solid black;
+    color:white;
 }
 
-h4,p{
+h3,h4,p{
     color:rgb(53, 55, 75);
 }
 
@@ -28,6 +37,27 @@ h4,p{
 #container{
     display: flex;
     justify-content: space-around;
+    background-color:rgb(76, 115, 87);
+    border-radius: 3px;
+}
+
+#innerContainer{
+    padding: 1rem;
+}
+
+.buttonLink{
+    text-decoration: none;
+}
+.corsButtons{
+    background-color: burlywood;
+    border:1px solid white;
+    border-radius: 3px;
+}
+
+#corsButtonsContainer{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
 }
 
 #minRatingDisplay{
