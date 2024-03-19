@@ -8,6 +8,7 @@ const minRatingDisplay = document.getElementById("minRatingDisplay");
 const minRating = document.getElementById("minRating");
 let presentMinRating = 7.5;
 const searchInput = document.getElementById("searchInput");
+const yearInput = document.getElementById("yearInput");
 
 minRating.addEventListener("input", function () {
   minRatingDisplay.textContent = this.value;
@@ -137,11 +138,15 @@ async function search() {
   mainDiv.innerHTML = "";
 
   const searchString = searchInput.value;
+  const yearString = yearInput.value;
+  searchInput.value = "";
+  yearInput.value = "";
+
   for (let i = 0; i < searchString.length; i++) {
     if (searchString[i] === " ") searchString[i] = "+";
   }
 
-  let fullURL = OMDBurl + `&t=${searchString}`;
+  let fullURL = OMDBurl + `&t=${searchString}&y=${yearString}`;
   const movieDataResponse = await fetch(fullURL);
   const movieData = await movieDataResponse.json();
 
