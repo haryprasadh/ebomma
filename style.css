@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+*{
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
 #mainDiv{
     display: flex;
     flex-wrap: wrap;
@@ -7,6 +15,17 @@
 
 #logo{
     width:12%;
+}
+
+.highlight{
+    color:navy;
+    background-color: gray;
+    padding: 0.3rem;
+    border-radius: 3px;
+}
+
+.highlight2{
+    color:darkred;
 }
 
 #nav{
@@ -23,9 +42,10 @@ body{
     background-color: black;
     border:1px solid black;
     color:white;
+    padding: 0.4rem;
 }
 
-h3,h4,p{
+h3,h4,h5{
     color:rgb(53, 55, 75);
 }
 
