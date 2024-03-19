@@ -23,13 +23,18 @@
     </div>
     <hr>
     <div id="container">
-        <div id="innerContainer">
+        <div class="innerContainer" id="ic1">
             <h3>Choose minimum rating <input type="range" min="0" max="10" value="7.5" step="0.5" id="minRating"></h3>
             <h4 id="inline">
                 Get movies above <span id="minRatingDisplay">7.5</span> rating from <a
                     href="https://tube.ibomma.pw/telugu-movies/">IBOMMA</a>
             </h4>
             <button onclick="main()" id="mainRunner">click me</button>
+        </div>
+        <div class="innerContainer" id="ic2">
+            <h3>Search movie title</h3>
+            <input type="text" id="searchInput" placeholder="movie title">
+            <button onclick="search()" id="searchRunner">search</button>
         </div>
     </div>
     <hr>
