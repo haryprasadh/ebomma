@@ -9,6 +9,7 @@ const minRating = document.getElementById("minRating");
 let presentMinRating = 7.5;
 const searchInput = document.getElementById("searchInput");
 const yearInput = document.getElementById("yearInput");
+const ratedCheck = document.getElementById("ratedCheck");
 
 minRating.addEventListener("input", function () {
   minRatingDisplay.textContent = this.value;
@@ -43,6 +44,7 @@ async function main() {
 
       if (movieData.Response == "False") continue;
       let rating = movieData.imdbRating;
+      if (ratedCheck.checked && rating === "N/A") continue;
       if (rating !== "N/A" && rating < presentMinRating) continue;
 
       let oneMovie = [];
